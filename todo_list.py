@@ -17,12 +17,20 @@ def add_task():
   tasks.append(task)
   print(f"Task '{task}' added!")
 
+def view_tasks():
+  if tasks:
+    print("\nTasks:")
+    for index, task in enumerate(tasks, start=1):
+      print("f{index}. {task}")
+  else:
+    print("\nNo tasks to display.")
+
 if __name__ == "__main__":
   while True:
     user_choice = display_menu()
 
     if user_choice == "1":
-      print(tasks)
+      view_tasks()
     elif user_choice == "2":
       add_task()
     elif user_choice == "3":
