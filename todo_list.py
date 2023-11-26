@@ -5,7 +5,8 @@ def main_menu():
     print('2. List all tasks')
     print('3. Get task at index')
     print('4. Update task by index')
-    print('5. Exit')
+    print('5. Delete task by index')
+    print('6. Exit')
 
     choice = input('Enter a corrisponding number, to make a choice: ')
 
@@ -18,6 +19,8 @@ def main_menu():
     elif choice == '4':
       update_task_by_index()
     elif choice == '5':
+      delete_task_by_index()
+    elif choice == '6':
       break
     else:
       print('Invalid choice. Please try again')
@@ -39,6 +42,11 @@ def update_task_by_index():
   updatedTask = input('Update to apply: ')
   tasks[index] = updatedTask
   print(f'task at index {index} updated.')
+
+def delete_task_by_index():
+  index = int(input('Task at which index?: '))
+  tasks.pop(index)
+  print(f'Task at index {index} deleted')
 
 tasks = []
 
