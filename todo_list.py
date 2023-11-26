@@ -5,7 +5,7 @@ def main_menu():
     print('2. List all tasks')
     print('3. Get task by ID')
     print('4. Update task by ID')
-    print('5. Delete task by index')
+    print('5. Delete task by ID')
     print('6. Exit')
 
     choice = input('Enter a corrisponding number, to make a choice: ')
@@ -19,7 +19,7 @@ def main_menu():
     elif choice == '4':
       update_task_by_id()
     elif choice == '5':
-      delete_task_by_index()
+      delete_task_by_id()
     elif choice == '6':
       break
     else:
@@ -45,10 +45,13 @@ def update_task_by_id():
   tasks[index] = f'{task_id}. {updatedTask}'
   print(f'task at index {index} updated.')
 
-def delete_task_by_index():
-  index = int(input('Task at which index?: '))
+def delete_task_by_id():
+  global tasks
+  task_id = input('Please input the task ID: ')
+  index = next((i for i, task in enumerate(tasks) if task.startswith(task_id + '.')), None)
   tasks.pop(index)
-  print(f'Task at index {index} deleted')
+  tasks = [f'{i+1}. {task.split(". ", 1)[1]}' for i, task in enumerate(tasks)]
+  print(f'Task with ID {task_id} deleted')
 
 tasks = []
 
