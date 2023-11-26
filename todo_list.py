@@ -3,7 +3,7 @@ def main_menu():
     print('\n=== Todo List ===')
     print('1. Create task')
     print('2. List all tasks')
-    print('3. Get task at index')
+    print('3. Get task by ID')
     print('4. Update task by index')
     print('5. Delete task by index')
     print('6. Exit')
@@ -15,7 +15,7 @@ def main_menu():
     elif choice == '2':
       list_tasks()
     elif choice == '3':
-      get_task_at_index()
+      get_task_byId()
     elif choice == '4':
       update_task_by_index()
     elif choice == '5':
@@ -33,9 +33,10 @@ def create_task():
 def list_tasks():
   print(tasks)
 
-def get_task_at_index():
-  index = int(input('Task at which index?: '))
-  print(tasks[index])
+def get_task_byId():
+  task_id = input('Please input the task ID: ')
+  filtered_tasks = [task for task in tasks if task.startswith(task_id + '.')]
+  print(filtered_tasks)
 
 def update_task_by_index():
   index = int(input('Task at which index?: '))
