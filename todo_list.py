@@ -4,7 +4,7 @@ def main_menu():
     print('1. Create task')
     print('2. List all tasks')
     print('3. Get task by ID')
-    print('4. Update task by index')
+    print('4. Update task by ID')
     print('5. Delete task by index')
     print('6. Exit')
 
@@ -17,7 +17,7 @@ def main_menu():
     elif choice == '3':
       get_task_byId()
     elif choice == '4':
-      update_task_by_index()
+      update_task_by_id()
     elif choice == '5':
       delete_task_by_index()
     elif choice == '6':
@@ -38,10 +38,11 @@ def get_task_byId():
   filtered_tasks = [task for task in tasks if task.startswith(task_id + '.')]
   print(filtered_tasks)
 
-def update_task_by_index():
-  index = int(input('Task at which index?: '))
+def update_task_by_id():
+  task_id = input('Please input the task ID: ')
   updatedTask = input('Update to apply: ')
-  tasks[index] = updatedTask
+  index = next((i for i, task in enumerate(tasks) if task.startswith(task_id + '.')), None)
+  tasks[index] = f'{task_id}. {updatedTask}'
   print(f'task at index {index} updated.')
 
 def delete_task_by_index():
