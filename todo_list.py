@@ -24,7 +24,8 @@ def main_menu():
 
 def create_task():
   task = input('Please type in your task: ')
-  tasks.append(task)
+  formattedTask = f'{len(tasks) + 1}. {task}'
+  tasks.append(formattedTask)
 
 def list_tasks():
   print(tasks)
