@@ -34,9 +34,11 @@ def list_tasks():
   print(tasks)
 
 def get_task_byId():
-  task_id = input('Please input the task ID: ')
-  filtered_tasks = [task for task in tasks if task.startswith(task_id + '.')]
-  print(filtered_tasks)
+    task_id = input('Please input the task ID: ')
+    filtered_tasks = [task for task in tasks if task.startswith(task_id + '.')]
+    if not filtered_tasks:
+        print('No task with that ID found')
+    print(filtered_tasks)
 
 def update_task_by_id():
   task_id = input('Please input the task ID: ')
