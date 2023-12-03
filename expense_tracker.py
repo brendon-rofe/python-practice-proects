@@ -1,3 +1,5 @@
+from enum import Enum
+
 def main_menu():
     while True:
         print('\n=== Expense Tracker ===')
@@ -27,6 +29,13 @@ class Expense:
         self.category = category
         self.description = description
         self.date = date
+
+class Category(Enum):
+    FOOD = 'food'
+    ENTERTAINMENT = 'entertainment'
+    TRANSPORTATION = 'transportation'
+    UTILITIES = 'utilities'
+    CLOTHING = 'clothing'
 
 expenses = []
 
