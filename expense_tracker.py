@@ -7,12 +7,28 @@ def main_menu():
         choice = input('Enter a corrisponding number, to make a choice: ')
         
         if choice == '1':
-            print('This will be impelmented later')
+            amount = input('Enter the amount of the expense: ')
+            category = input('Enter the category of the expense: ')
+            description = input('Enter a description of the expense: ')
+            date = input('Enter the date of the expense: ')
+            add_expense(amount, category, description, date)
         elif choice == '6':
             break
         else:
             print('Invalid choice. Please try again')
 
+def add_expense(amount, category, description, date):
+    new_expense = Expense(amount, category, description, date)
+    expenses.append(new_expense)
+
+class Expense:
+    def __init__(self, amount, category, description, date):
+        self.amount = amount
+        self.category = category
+        self.description = description
+        self.date = date
+
+expenses = []
 
 if __name__ == '__main__':
     main_menu()
