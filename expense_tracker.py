@@ -47,7 +47,7 @@ def list_all_expenses():
         print('Expense Details:')
         print('------------------')
         print(f'Amount: {expense.amount}')
-        print(f'Category: {expense.category}')
+        print(f'Category: {expense.category.value}')
         print(f'Description: {expense.description}')
         print(f'Date: {expense.date}')
         print('------------------')
