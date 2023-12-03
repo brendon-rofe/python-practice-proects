@@ -5,6 +5,7 @@ def main_menu():
         print('\n=== Expense Tracker ===')
         print('\n Please pick an option from the list below:')
         print('1. Add an expense')
+        print('2. List all expenses')
         print('6. Exit')
         choice = input('Enter a corrisponding number, to make a choice: ')
         
@@ -30,6 +31,8 @@ def main_menu():
             description = input('Enter a description of the expense: ')
             date = input('Enter the date of the expense: ')
             add_expense(amount, category, description, date)
+        elif choice == '2':
+            list_all_expenses()
         elif choice == '6':
             break
         else:
@@ -38,6 +41,17 @@ def main_menu():
 def add_expense(amount, category, description, date):
     new_expense = Expense(amount, category, description, date)
     expenses.append(new_expense)
+
+def list_all_expenses():
+    for expense in expenses:
+        print('------------------')
+        print('Expense Details:')
+        print('------------------')
+        print(f'Amount: {expense.amount}')
+        print(f'Category: {expense.category}')
+        print(f'Description: {expense.description}')
+        print(f'Date: {expense.date}')
+        print('------------------')
 
 class Expense:
     def __init__(self, amount, category, description, date):
