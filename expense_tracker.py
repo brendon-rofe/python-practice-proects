@@ -46,6 +46,7 @@ def list_all_expenses():
         print('------------------')
         print('Expense Details:')
         print('------------------')
+        print(f'ID: {expense.id}')
         print(f'Amount: {expense.amount}')
         print(f'Category: {expense.category.value}')
         print(f'Description: {expense.description}')
@@ -54,6 +55,7 @@ def list_all_expenses():
 
 class Expense:
     def __init__(self, amount, category, description, date):
+        self.id = expenses.__len__() + 1
         self.amount = amount
         self.category = category
         self.description = description
