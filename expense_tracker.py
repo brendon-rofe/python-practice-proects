@@ -20,6 +20,7 @@ def main_menu():
 			print('Invalid choice. Please try again')
 
 def add_expense():
+	global expenses
 	amount = input('Enter the amount of the expense: ')
 	print('Please pick a category from the list below: ')
 	print('1. Food')
@@ -40,8 +41,7 @@ def add_expense():
 	description = input('Enter a description of the expense: ')
 	date = input('Enter the date of the expense: ')
 	new_expense = Expense(amount, category, description, date)
-    expenses.append(new_expense)
-
+	expenses.append(new_expense)
 def list_all_expenses():
 	for expense in expenses:
 		print('------------------')
@@ -53,6 +53,11 @@ def list_all_expenses():
 		print(f'Description: {expense.description}')
 		print(f'Date: {expense.date}')
 		print('------------------')
+
+expenses = []
+
+if __name__ == '__main__':
+	main_menu()
 
 def edit_expense():
 	expense_id = input('Enter the ID of the expense you would like to modify: ')
