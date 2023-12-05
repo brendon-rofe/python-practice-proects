@@ -6,6 +6,7 @@ def main_menu():
         print('\n Please pick an option from the list below:')
         print('1. Add an expense')
         print('2. List all expenses')
+        print('3. Edit an expense')
         print('6. Exit')
         choice = input('Enter a corrisponding number, to make a choice: ')
         
@@ -52,6 +53,13 @@ def list_all_expenses():
         print(f'Description: {expense.description}')
         print(f'Date: {expense.date}')
         print('------------------')
+
+def edit_expense():
+    expense_id = input('Enter the ID of the expense you would like to modify: ')
+    expense_to_modify = {}
+    for expense in expenses:
+        if expense.id == expense_id:
+           expense_to_modify = expense
 
 class Expense:
     def __init__(self, amount, category, description, date):
