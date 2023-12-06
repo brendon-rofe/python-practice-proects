@@ -61,10 +61,14 @@ if __name__ == '__main__':
 
 def edit_expense():
 	expense_id = input('Enter the ID of the expense you would like to modify: ')
-	expense_to_modify = {}
+	new_amount = input('Enter the new amount of the expense: ')
+	expense_to_modify
 	for expense in expenses:
 		if expense.id == expense_id:
 			expense_to_modify = expense
+	expense_to_modify.amount = new_amount
+	index_of_expense = expenses.index(expense_to_modify)
+	expenses[index_of_expense] = expense_to_modify
 
 class Expense:
 	def __init__(self, amount, category, description, date):
