@@ -87,7 +87,5 @@ def edit_expense():
 	index_of_expense = expenses.index(expense)
 	expenses[index_of_expense] = expense_to_modify
 
-expenses = []
-
 if __name__ == '__main__':
     main_menu()
