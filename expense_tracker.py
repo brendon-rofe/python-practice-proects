@@ -24,6 +24,7 @@ def main_menu():
 		print('1. Add an expense')
 		print('2. List all expenses')
 		print('3. Edit an expense')
+		print('4. Delete expense')
 		print('6. Exit')
 		choice = input('Enter a corrisponding number, to make a choice: ')
 		
@@ -64,6 +65,7 @@ def add_expense():
 	date = input('Enter the date of the expense: ')
 	new_expense = Expense(amount, category, description, date)
 	expenses.append(new_expense)
+
 def list_all_expenses():
 	for expense in expenses:
 		print('------------------')
@@ -86,6 +88,10 @@ def edit_expense():
 	expense_to_modify.amount = new_amount
 	index_of_expense = expenses.index(expense)
 	expenses[index_of_expense] = expense_to_modify
+
+def delete_expense():
+	expense_id = int(input('Enter the ID of the expense you would like to delete: '))
+	
 
 if __name__ == '__main__':
     main_menu()
