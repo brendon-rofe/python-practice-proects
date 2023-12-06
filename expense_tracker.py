@@ -15,6 +15,8 @@ class Expense:
 		self.description = description
 		self.date = date
 
+expenses = []
+
 def main_menu():
 	while True:
 		print('\n=== Expense Tracker ===')
@@ -74,20 +76,15 @@ def list_all_expenses():
 		print(f'Date: {expense.date}')
 		print('------------------')
 
-expenses = []
-
-if __name__ == '__main__':
-	main_menu()
-
 def edit_expense():
-	expense_id = input('Enter the ID of the expense you would like to modify: ')
+	expense_id = int(input('Enter the ID of the expense you would like to modify: '))
 	new_amount = input('Enter the new amount of the expense: ')
-	expense_to_modify
+	expense_to_modify = None
 	for expense in expenses:
 		if expense.id == expense_id:
 			expense_to_modify = expense
 	expense_to_modify.amount = new_amount
-	index_of_expense = expenses.index(expense_to_modify)
+	index_of_expense = expenses.index(expense)
 	expenses[index_of_expense] = expense_to_modify
 
 expenses = []
