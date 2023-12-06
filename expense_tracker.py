@@ -1,5 +1,20 @@
 from enum import Enum
 
+class Category(Enum):
+	FOOD = 'food'
+	ENTERTAINMENT = 'entertainment'
+	TRANSPORTATION = 'transportation'
+	UTILITIES = 'utilities'
+	CLOTHING = 'clothing'
+
+class Expense:
+	def __init__(self, amount, category, description, date):
+		self.id = expenses.__len__() + 1
+		self.amount = amount
+		self.category = category
+		self.description = description
+		self.date = date
+
 def main_menu():
 	while True:
 		print('\n=== Expense Tracker ===')
@@ -14,6 +29,8 @@ def main_menu():
 			add_expense()
 		elif choice == '2':
 			list_all_expenses()
+		elif choice == '3':
+			edit_expense()
 		elif choice == '6':
 			break
 		else:
@@ -28,16 +45,19 @@ def add_expense():
 	print('3. Transportation')
 	print('4. Utilities')
 	category = input('Enter the category of the expense: ')
-	if category == '1':
-		category = Category.FOOD
-	elif category == '2':
-		category = Category.ENTERTAINMENT
-	elif category == '3':
-		category = Category.TRANSPORTATION
-	elif category == '4':
-		category = Category.UTILITIES        
-	else:
+
+	category_map = {
+		'1': Category.FOOD,
+		'2': Category.ENTERTAINMENT,
+		'3': Category.TRANSPORTATION,
+		'4': Category.UTILITIES
+	}
+
+	category = category_map.get(category)
+
+	if not category:
 		print('Please choose a number between 1 and 4')
+		return
 	description = input('Enter a description of the expense: ')
 	date = input('Enter the date of the expense: ')
 	new_expense = Expense(amount, category, description, date)
@@ -69,21 +89,6 @@ def edit_expense():
 	expense_to_modify.amount = new_amount
 	index_of_expense = expenses.index(expense_to_modify)
 	expenses[index_of_expense] = expense_to_modify
-
-class Expense:
-	def __init__(self, amount, category, description, date):
-		self.id = expenses.__len__() + 1
-		self.amount = amount
-		self.category = category
-		self.description = description
-		self.date = date
-
-class Category(Enum):
-	FOOD = 'food'
-	ENTERTAINMENT = 'entertainment'
-	TRANSPORTATION = 'transportation'
-	UTILITIES = 'utilities'
-	CLOTHING = 'clothing'
 
 expenses = []
 
