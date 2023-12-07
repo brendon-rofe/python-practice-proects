@@ -34,6 +34,8 @@ def main_menu():
 			list_all_expenses()
 		elif choice == '3':
 			edit_expense()
+		elif choice == '4':
+			delete_expense()
 		elif choice == '6':
 			break
 		else:
@@ -91,7 +93,12 @@ def edit_expense():
 
 def delete_expense():
 	expense_id = int(input('Enter the ID of the expense you would like to delete: '))
-	
+	for i, expense in enumerate(expenses):
+		if expense.id == expense_id:
+			expenses.pop(i)
+			break
+		else:
+			print('An expense with that ID not found')
 
 if __name__ == '__main__':
     main_menu()
